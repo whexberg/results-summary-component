@@ -40,12 +40,11 @@ $fw-bolder: 800;
     box-sizing: border-box;
 }
 
-body {
+html, body {
     font-family: $font-family;
-    background: $pale-blue;
     position: relative;
-    min-width: 100vw;
-    min-height: 100vh;
+    width: 100%;
+    height: 100%;
     padding: 0;
     margin: 0;
 }
