@@ -1,0 +1,310 @@
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk&display=swap");
+
+$breakpoint-mobile: 375px;
+$breakpoint-desktop: 1440px;
+
+$light-red: hsl(0, 100%, 67%);
+$orangey-yellow: hsl(39, 100%, 56%);
+$green-teal: hsl(166, 100%, 37%);
+$cobalt-blue: hsl(234, 85%, 45%);
+
+// background
+$gradient-light-slate-blue: hsl(252, 100%, 67%);
+$gradient-light-royal-blue: hsl(241, 81%, 54%);
+
+// circle
+$gradient-violet-blue: hsla(256, 72%, 46%, 1);
+$gradient-persian-blue: hsla(241, 72%, 46%, 0);
+
+$white: hsl(0, 0%, 100%);
+$pale-blue: hsl(221, 100%, 96%);
+$light-lavender: hsl(241, 100%, 89%);
+$dark-gray-blue: hsl(224, 30%, 27%);
+$dark-gray-blue-light: hsla(224, 30%, 27%, 0.5);
+
+$fs: 18px;
+$fs-lg: 24px;
+$fs-xl: 56px;
+$font-family: "Hanken Grotesk";
+$font-weights-normal: 500;
+$font-weights-bold: 700;
+$fw-bolder: 800;
+
+@mixin respond() {
+    @media screen and (min-width: 376px) {
+        @content;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font-family;
+    background: $pale-blue;
+    position: relative;
+    min-width: 100vw;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+/* Rectangle */
+main {
+    background: #ffffff;
+
+    @include respond {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 30px 60px rgba(61, 108, 236, 0.15);
+        border-radius: 32px;
+
+        height: 512px;
+        width: 736px;
+
+        display: flex;
+    }
+}
+
+.result-total {
+    background: linear-gradient(180deg, $gradient-light-slate-blue 0%, $gradient-light-royal-blue 100%);
+
+    padding: 24px 58px 40px;
+
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+
+    @include respond {
+        border-radius: 32px;
+        padding: 38px;
+        height: 512px;
+        width: 368px;
+        max-width: 368px;
+
+        padding: 38px 54px 46px;
+    }
+
+    .your-result {
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 0;
+        line-height: 23px;
+        color: $light-lavender;
+        text-align: center;
+
+        @include respond {
+            // max-height: 512px;
+
+            font-size: 24px;
+            line-height: 31px;
+        }
+    }
+
+    .percent-score {
+        background: linear-gradient(180deg, #4d21c9 0%, rgba(37, 33, 201, 0) 100%, rgba(37, 33, 201, 0) 100%);
+        border-radius: 9999px;
+        aspect-ratio: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 21px;
+        letter-spacing: 0;
+        text-align: center;
+        color: $light-lavender;
+
+        width: 140px;
+        @include respond {
+            width: 200px;
+        }
+
+        .score {
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 72px;
+            color: white;
+            letter-spacing: 0;
+
+            @include respond {
+                font-size: 72px;
+                font-weight: 800;
+            }
+        }
+    }
+
+    .text {
+        text-align: center;
+        letter-spacing: 0;
+
+        .header {
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 31px;
+            letter-spacing: 0;
+            color: white;
+            margin-bottom: 8px;
+            text-align: center;
+
+            @include respond {
+                font-size: 32px;
+                line-height: 42px;
+                margin-bottom: 14px;
+            }
+        }
+
+        .percentile {
+            color: $light-lavender;
+            font-size: 16px;
+            line-height: 21px;
+            font-weight: 500;
+
+            @include respond {
+                font-size: 18px;
+                font-weight: 500;
+                line-height: 23px;
+            }
+        }
+    }
+}
+
+.result-summary {
+    padding: 24px 30px 30px;
+    @include respond {
+        width: 368px;
+        padding: 38px 40px 46px;
+    }
+
+    .summary {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 23px;
+        letter-spacing: 0;
+        text-align: left;
+        margin-bottom: 24px;
+
+        @include respond {
+            font-size: 24px;
+            line-height: 31px;
+        }
+    }
+
+    .reaction,
+    .memory,
+    .verbal,
+    .visual {
+        // width: 315px;
+        // height: 56px;
+        border-radius: 12px;
+        padding: 16px;
+        margin-bottom: 16px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        svg {
+            margin-right: 12px;
+
+            & + div {
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 21px;
+                letter-spacing: 0;
+
+                @include respond() {
+                    font-size: 18px;
+                    line-height: 23px;
+                }
+            }
+        }
+
+        .percentage {
+            display: flex;
+
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 21px;
+            letter-spacing: 0;
+            text-align: right;
+            color: $dark-gray-blue-light;
+
+            @include respond() {
+                font-size: 18px;
+                line-height: 23px;
+            }
+
+            .bold {
+                margin-right: 8px;
+                color: $dark-gray-blue;
+            }
+        }
+    }
+
+    .reaction {
+        background: linear-gradient(0deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), $light-red;
+        svg + div {
+            color: $light-red;
+        }
+    }
+
+    .memory {
+        background: linear-gradient(0deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), $orangey-yellow;
+        svg + div {
+            color: $orangey-yellow;
+        }
+    }
+
+    .verbal {
+        background: linear-gradient(0deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), $green-teal;
+        svg + div {
+            color: $green-teal;
+        }
+    }
+
+    .visual {
+        background: linear-gradient(0deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), $cobalt-blue;
+        svg + div {
+            color: $cobalt-blue;
+        }
+    }
+
+    .button {
+        padding: 16px;
+        background: #303b59;
+        border-radius: 128px;
+        text-align: center;
+
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 23px;
+        letter-spacing: 0;
+        color: white;
+
+        margin-top: 24px;
+
+        @include respond {
+            margin-top: 41px;
+        }
+
+        &:hover {
+            cursor: pointer;
+            background: linear-gradient(180deg, $gradient-light-slate-blue 0%, $gradient-light-royal-blue 100%);            ;
+        }
+    }
+}
+
+.flex {
+    display: flex;
+}
